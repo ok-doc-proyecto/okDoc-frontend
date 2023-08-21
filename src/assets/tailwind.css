@@ -1,0 +1,10 @@
+/* styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(242 242 242)
+}
+/* Your custom CSS can go here */
