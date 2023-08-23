@@ -34,7 +34,7 @@
             id="loginArea" 
             class="flex w-80 bg-white shadow-lg shadow-black rounded-3xl">
             <div id="inputList" 
-                class="flex-col justify-between items-center h-full p-10 rounded-3xl mx-auto">
+                class="flex flex-col justify-between items-center h-full p-10 rounded-3xl mx-auto">
                 
                 <h1 class="w-full ">Sign in to okDoc</h1>
                 <div>

@@ -20,7 +20,7 @@ export default{
 </script>
 
 <template>
-    <div class="flex-col align-middle justify-center">
+    <div class="">
         <div class="flex w-full h-full border-l-0 ">            
             <button 
                 class="flex w-full h-full hover:text-blue-300 justify-center items-center border-nones"
@@ -30,12 +30,12 @@ export default{
             
             <div 
                 v-show="dropDownVisible" 
-                class="absolute w-16 top-14 mx-auto border-none items-center">
+                class="absolute w-[78px] top-14 mx-auto border-none items-center bg-white">
                 <a                     
                     v-for="item in items" 
                     :href="item.link" 
                     @click="selected = item.name, dropDownVisible = !dropDownVisible"
-                    class="flex w-[78px] justify-center hover:text-blue-300 mx-auto">
+                    class="flex w-full justify-center hover:text-blue-300 mx-auto">
                     {{ item.name }}
                 </a>
             </div>
