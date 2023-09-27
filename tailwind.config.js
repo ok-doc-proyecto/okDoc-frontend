@@ -7,6 +7,9 @@ module.exports = {
   
   theme: {
     extend: {
+      animation:{
+        'open-button-tilt': 'openButtonAnimation 2s infinite',
+      },
       fontFamily:{
         'Inter':['"inter"','inter'],
         'Roboto':['Roboto', 'sans-serif'] 
@@ -28,6 +31,9 @@ module.exports = {
         },
         'holy-gray':{
           DEFAULT:'#F2F2F2'
+        },
+        'bodyWhite' : {
+          DEFAULT: 'rgb(242 242 242)'
         }
       },
         

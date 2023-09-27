@@ -3,6 +3,8 @@
     import baseInput from '../components/baseInput.vue';
     import { ref, defineComponent, onMounted, computed } from 'vue';
     import {gsap} from 'gsap';
+    import {tools} from '../global-functions/tools'
+
     const emit = defineEmits(['openLogin'])
 
     const Logo = ref('')
@@ -20,13 +22,13 @@
             return typeOfScreen;
         }
     })
-    
+
     /*computed(() => window.innerWidth <=900)*/
 
-    const getData = (inputValue) =>{
-        let userQuery = inputValue
-        console.log('You have writen ' + userQuery)
-        }
+    // const getData = (inputValue) =>{
+    //     let userQuery = inputValue
+    //     console.log('You have writen ' + userQuery)
+    //     }
     
     const firstAnimation = ()=> {
         const tl = gsap.timeline({delay:1,paused:true});
@@ -45,23 +47,23 @@
     <header class="w-full">
        <div class="flex w-full h-full justify-center items-center">
             
-            <div class="flex-grow bg-white h-1/2 py-1 rounded mx-4 shadow-md items-center">
-                <div class="flex h-full sitems-center justify-center ">
+            <div class="flex flex-grow bg-white h-1/2 py-1 rounded mx-4 shadow-md items-center">
+                <div class="flex w-full h-full items-center justify-center ">
                     
                     <baseInput 
                         :sendInput="true" 
-                        @send-query="getData"
+                        @send-query="tools.getData"
                         class=" flex-grow "
                         placeholder=" Hi!"/>
                     
                     <dropDown 
-                        class=" w-20 border-l-2 border-great-blue-300 xs:hidden"/>
+                        class=" right-0 w- border-l-2 border-great-blue-300 xs:hidden"/>
                 </div>
                 
             </div>
             <button 
                 id="Login" 
-                class="h-3/5 w-16 bg-great-blue-300 hover:bg-great-blue-400 font-Roboto font rounded-lg shadow-md text-center align-middle sm:hidden"
+                class="h-3/5 w-[70px] bg-great-blue-200 hover:bg-great-blue-300 font-Roboto font rounded-lg shadow-md text-center align-middle sm:hidden"
                 @click="openLoginTemplate">
                 Login
             </button>
