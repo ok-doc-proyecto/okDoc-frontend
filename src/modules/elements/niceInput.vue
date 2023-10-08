@@ -1,6 +1,6 @@
 <script setup>
     import baseInput from './baseInput.vue'
-    import {tools} from '../global-functions/tools'
+    import {tools} from '../../global-functions/tools'
 </script>
 
 <template>

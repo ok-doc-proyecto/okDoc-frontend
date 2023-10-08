@@ -3,7 +3,6 @@ import './assets/tailwind.css'
 import App from './App.vue'
 import router from './router'
 import { FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
-// import { library } from '@fortawesome/fontawesome-svg-core';
 import {fas} from '@fortawesome/free-solid-svg-icons'
 import {gsap} from 'gsap'
 import {registerLicense} from '@syncfusion/ej2-base'

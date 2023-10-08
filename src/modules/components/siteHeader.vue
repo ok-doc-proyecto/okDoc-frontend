@@ -1,9 +1,9 @@
 <script setup>
-    import dropDown from '../components/dropDown.vue';
-    import baseInput from '../components/baseInput.vue';
+    import dropDown from '../elements/dropDown.vue';
+    import baseInput from '../elements/baseInput.vue';
     import { ref, defineComponent, onMounted, computed } from 'vue';
     import {gsap} from 'gsap';
-    import {tools} from '../global-functions/tools'
+    import {tools} from '../../global-functions/tools'
 
     const emit = defineEmits(['openLogin'])
 
@@ -44,7 +44,7 @@
 </script>
 
 <template>
-    <header class="w-full">
+    <header>
        <div class="flex w-full h-full justify-center items-center">
             
             <div class="flex flex-grow bg-white h-1/2 py-1 rounded mx-4 shadow-md items-center">

@@ -1,6 +1,5 @@
 
 <script setup>
-    import { defineProps } from 'vue';
     import baseInput from './baseInput.vue'
     import niceInput from './niceInput.vue'
     const emit = defineEmits(['delete-filter'])

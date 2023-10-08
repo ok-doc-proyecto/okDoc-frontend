@@ -1,5 +1,5 @@
 <script setup>
-import baseInput from '../components/baseInput.vue'
+import baseInput from '../elements/baseInput.vue'
 import { ref, onMounted } from 'vue';
 
 

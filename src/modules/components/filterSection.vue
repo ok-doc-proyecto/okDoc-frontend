@@ -1,9 +1,9 @@
 <script setup>
-import openButton from '../components/openButton.vue'
-import baseFilter from '../components/baseFilter.vue'
-import baseInput from '../components/baseInput.vue'
+import openButton from '../elements/openButton.vue'
+import baseFilter from '../elements/basefilter.vue'
+import baseInput from '../elements/baseInput.vue'
 import { computed, ref, watch } from 'vue';
-import { tools } from '../global-functions/tools'
+import { tools } from '../../global-functions/tools'
 
 
 const filters = [
