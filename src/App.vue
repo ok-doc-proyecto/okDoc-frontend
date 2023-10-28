@@ -4,32 +4,38 @@ import siteHeader from './modules/components/siteHeader.vue'
 import medsSection from './modules/views/medsSection.vue'
 import login from './modules/views/login.vue'
 import filterSection from './modules/components/filterSection.vue'
-import { computed, onMounted, ref } from 'vue';
-import { gsap } from 'gsap';
-import axios from 'axios';
+import { computed, onMounted, ref,provide } from 'vue';
+import {useStore} from 'vuex'
+
+const store = useStore()
+
 
 const bluePadlet = {
   greatBlue300: "#6CB9D8"
+} 
+
+const generalStates = {
+  loggedIn:ref(false),
+  approveSignIn:(userData)=>{
+    console.log('Welcome back!')
+  },
+  userInfo:{},
 }
 
 
 
-const props = defineProps({
-  loggingIn: {
-    type: Boolean,
-  }
-})
-
 const logIn = ref(false);
 
+provide('generalStates',generalStates)
 </script>
 
 <template>
+
   <main class="flex flex-col w-screen h-screen">
   
     <filterSection></filterSection>
 
-    <login class="fixed z-auto h-full w-full bg-gray-700 opacity-70" @close-login="logIn = !logIn" v-if="logIn">
+    <login class=" loginSection fixed z-auto h-full w-full backdrop-blur-md" @close-login="logIn = !logIn" @sign-in="generalStates.approveSignIn" v-if="logIn">
     </login>
 
     <siteHeader 
@@ -47,6 +53,8 @@ const logIn = ref(false);
       <RouterView />
     </section>
   </main>
+
+
 </template>
 
 <style lang="scss">
@@ -59,6 +67,9 @@ const logIn = ref(false);
     inset 0px 0px 30px 5px rgba(255,255,255,0.3),
 
     0px 0px 10px 10px rgba(0, 0, 0, 0.1)
+}
+.loginSection{
+  background-color: rgba(0,0,0,0.5);
 }
 
 

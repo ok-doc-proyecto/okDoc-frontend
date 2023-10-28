@@ -26,22 +26,21 @@ onBeforeMount(
     async () => {
         try {
             allDocs = await getAllDocs()
-            console.log(allDocs)
         }catch(e){
             console.log(e)
         }
     }
 )
 
-const medComponentTimeline = gsap.timeline({});
-    medComponentTimeline.to('.medComponent',{opacity:0})
-const playComponentTimeline = () =>{
-   // console.log("componentTimeLine called")
-    medComponentTimeline.play();
-}
-const temporalTL = () =>{
+// const medComponentTimeline = gsap.timeline({});
+//     medComponentTimeline.to('.medComponent',{opacity:0})
+// const playComponentTimeline = () =>{
+//    // console.log("componentTimeLine called")
+//     medComponentTimeline.play();
+// }
+// const temporalTL = () =>{
 
-}
+// }
 
 let anyComponentClicked = ref(false)
 </script>

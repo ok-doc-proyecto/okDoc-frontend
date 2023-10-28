@@ -1,46 +1,22 @@
 <script setup>
     import dropDown from '../elements/dropDown.vue';
     import baseInput from '../elements/baseInput.vue';
-    import { ref, defineComponent, onMounted, computed } from 'vue';
-    import {gsap} from 'gsap';
+    import { ref, defineComponent, onMounted, computed, inject } from 'vue';
     import {tools} from '../../global-functions/tools'
+    import {useStore} from 'vuex'
+
+
+    const store = useStore()
+
+    const loggedIn = computed(() => store.state.loggedIn);
+    const userInfo = computed(() => store.state.userInfo);
 
     const emit = defineEmits(['openLogin'])
 
-    const Logo = ref('')
 
     const openLoginTemplate = () =>{
         emit('openLogin')
     }
-    const typeOfScreen = ref({
-        sm:false,
-        md:false
-        })
-    const isSmallScreen = computed(()=>{
-        if(window.innerWidth <= 900){
-            typeOfScreen.sm = !typeOfScreen.sm
-            return typeOfScreen;
-        }
-    })
-
-    /*computed(() => window.innerWidth <=900)*/
-
-    // const getData = (inputValue) =>{
-    //     let userQuery = inputValue
-    //     console.log('You have writen ' + userQuery)
-    //     }
-    
-    const firstAnimation = ()=> {
-        const tl = gsap.timeline({delay:1,paused:true});
-            tl.to((Logo.value, {x:'-800',autoAlpha:0, duration:1}))    
-        
-    }
-    
-/* <searchIcon 
-        class="h-full w-12 border-r-2 border-great-blue-300 hover:text-great-blue-300">
-
-    </searchIcon>
-*/
 </script>
 
 <template>
@@ -64,8 +40,14 @@
             <button 
                 id="Login" 
                 class="h-3/5 w-[70px] bg-great-blue-200 hover:bg-great-blue-300 font-Roboto font rounded-lg shadow-md text-center align-middle sm:hidden"
-                @click="openLoginTemplate">
+                @click="openLoginTemplate"
+                v-if="!loggedIn">
                 Login
+            </button>
+            <button
+                class="h-3/5 w-[70px] bg-great-blue-200 hover:bg-great-blue-300 font-Roboto font rounded-lg shadow-md text-center align-middle sm:hidden"
+                v-else>
+                {{ userInfo.name}}
             </button>
         </div> 
     </header>

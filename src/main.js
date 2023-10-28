@@ -7,6 +7,7 @@ import {fas} from '@fortawesome/free-solid-svg-icons'
 import {gsap} from 'gsap'
 import {registerLicense} from '@syncfusion/ej2-base'
 import axios from 'axios'
+import store from './redux/store'
 
 registerLicense()
 // library.add(fas);
@@ -14,5 +15,6 @@ registerLicense()
 axios.defaults.baseURL = '//localhost:8000';
 const app = createApp(App)
 app.component('fa',FontAwesomeIcon)
-app.use(router, axios)
+app.use(router)
+app.use(store)
 app.mount('#app')

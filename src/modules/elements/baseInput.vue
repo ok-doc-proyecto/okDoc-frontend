@@ -8,29 +8,33 @@ const props = defineProps({
     default: false,
   },
 })
-const emit = defineEmits(['addFilter'])
+const emit = defineEmits(['addFilter','sendQuery','bringValueToParent'])
 
-const query = ref('');
+const inputValue = ref('');
 
-const newQuery = (inputValue) => {
+const newQuery = () => {
 
   if (props.sendInput) {
-    emit('sendQuery', query.value)
-    query.value = '';
+    emit('sendQuery')
   }
   else if(props.sendFilter){
-    emit('addFilter', query.value)
-    query.value = '';
+    emit('addFilter')
   } 
   else{
     console.log('sendInput is false');
   }
+
+
 }
 
 </script>
 
 <template>
-  <input name="input" class="focus:outline-none" v-model="query" @keydown.enter="newQuery" />
+  <input 
+    name="input" 
+    class="focus:outline-none" 
+    v-model="inputValue"
+    @keydown.enter="newQuery" />
 </template>
 
 <style></style>
