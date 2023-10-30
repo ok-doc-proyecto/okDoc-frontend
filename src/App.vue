@@ -9,6 +9,11 @@ import {useStore} from 'vuex'
 
 const store = useStore()
 
+const storeVariables={
+    loggedIn: computed(() => store.state.loggedIn),
+    userInfo: computed(() => store.state.userInfo),
+}
+
 
 const bluePadlet = {
   greatBlue300: "#6CB9D8"

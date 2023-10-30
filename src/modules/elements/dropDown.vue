@@ -1,22 +1,15 @@
-<script>
-import { ref } from 'vue';
+<script setup>
+    import { ref } from 'vue';
 
-export default {
+    let dropDownVisible = ref(false)
+    let items = ref([
+        { name: "Item 1", link: "#", selected: "true" },
+        { name: "Item 2", link: "#", selected: "false" },
+        { name: "Item 3", link: "#", selected: "false" },
+    ]);
 
-    setup() {
-        let dropDownVisible = ref(false)
-        let items = ref([
-            { name: "Item 1", link: "#", selected: "true" },
-            { name: "Item 2", link: "#", selected: "false" },
-            { name: "Item 3", link: "#", selected: "false" },
-        ]);
-
-        let selected = ref("Item 1")
-
-
-        return { dropDownVisible, items, selected }
-    },
-};
+    let selected = ref("Item 1")
+;
 </script>
 
 <template>

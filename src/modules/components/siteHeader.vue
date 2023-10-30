@@ -7,10 +7,12 @@
 
 
     const store = useStore()
-
-    const loggedIn = computed(() => store.state.loggedIn);
-    const userInfo = computed(() => store.state.userInfo);
-
+    const storeVariables={
+        loggedIn: computed(() => store.state.loggedIn),
+        userInfo: computed(() => store.state.userInfo),
+    }
+    
+    
     const emit = defineEmits(['openLogin'])
 
 
@@ -41,13 +43,13 @@
                 id="Login" 
                 class="h-3/5 w-[70px] bg-great-blue-200 hover:bg-great-blue-300 font-Roboto font rounded-lg shadow-md text-center align-middle sm:hidden"
                 @click="openLoginTemplate"
-                v-if="!loggedIn">
+                v-if="!storeVariables.loggedIn.value">
                 Login
             </button>
             <button
                 class="h-3/5 w-[70px] bg-great-blue-200 hover:bg-great-blue-300 font-Roboto font rounded-lg shadow-md text-center align-middle sm:hidden"
                 v-else>
-                {{ userInfo.name}}
+                {{ storeVariables.loggedIn ? storeVariables.userInfo.value.name : ''}}
             </button>
         </div> 
     </header>
