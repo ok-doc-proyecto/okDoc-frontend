@@ -1,5 +1,6 @@
 <script setup>
 import baseInput from '../elements/baseInput.vue'
+import login from '../../services/authService'
 import { ref, onMounted, reactive, inject } from 'vue';
 import { useStore, mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
@@ -36,10 +37,14 @@ const handleLoginSubmit = (e) => {
         name: 'Gonzalo',
         user: formData.user.value,
         password: formData.password.value
-
     }
     const jsonData = JSON.stringify(dataObject);
-    approveLogin(dataObject)
+
+    const serverResponse = login(jsonData)
+
+
+
+    approveLogin(serverResponse)
     formData.user.value = '';
     formData.password.value = '';
 }
