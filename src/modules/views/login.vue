@@ -1,10 +1,12 @@
 <script setup>
 import baseInput from '../elements/baseInput.vue'
-import login from '../../services/authService'
+import {login,userValidation} from '../../services/authService'
 import { ref, onMounted, reactive, inject } from 'vue';
 import { useStore, mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+import users from '../../global-functions/userObjectsErase'
 
 const store = useStore()
+
 
 const emit = defineEmits(['closeLogin'])
 
@@ -17,7 +19,7 @@ const reactiveTextToShow = {
     bigLogError: 'Please, enter valid credentials',
     smallLogError: 'Invalid credentials',
     smallInWith: 'Sign in with',
-    bigInWith: 'Or ssign in with'
+    bigInWith: 'Or sign in with'
 }
 const closeLoginTemplate = (event) => {
     const loginArea = document.getElementById('loginArea');
@@ -33,30 +35,29 @@ const formData = {
 }
 const handleLoginSubmit = (e) => {
     e.preventDefault();
-    let dataObject = {
-        name: 'Gonzalo',
+    const introducedInfo = {
         user: formData.user.value,
-        password: formData.password.value
+        password:formData.password.value
     }
-    const jsonData = JSON.stringify(dataObject);
+    const jsonData = JSON.stringify(introducedInfo);
+    const serverResponse = userValidation(jsonData)
 
-    const serverResponse = login(jsonData)
+    if (serverResponse.valid === true ){
+        console.log(serverResponse)
+        approveLogin(serverResponse.data)
+    } else{
+        console.log(serverResponse.message)
+    }
 
-
-
-    approveLogin(serverResponse)
     formData.user.value = '';
     formData.password.value = '';
 }
 
-
 const approveLogin = (e) => {
     store.commit('logIn', e)
     emit('closeLogin')
-    console.log(store.state.loggedIn)
-    console.log(store.state.userInfo)
-
 }
+
 
 </script>
 

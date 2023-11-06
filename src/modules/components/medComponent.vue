@@ -39,7 +39,7 @@ let animationFinished = ref(false)
             </div>
         </div>
         <div class="flex justify-center align-middle w-20">
-            rating
+            {{ medico.rating }}
 
             <!-- <fieldset class="rating-wrap">
                 <font-awesome-icon icon="fa-solid fa-star" />
