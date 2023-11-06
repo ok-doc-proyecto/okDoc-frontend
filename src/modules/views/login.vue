@@ -36,11 +36,13 @@ const formData = {
 const handleLoginSubmit = (e) => {
     e.preventDefault();
     const introducedInfo = {
-        user: formData.user.value,
+        email: formData.user.value,
         password:formData.password.value
     }
     const jsonData = JSON.stringify(introducedInfo);
-    const serverResponse = userValidation(jsonData)
+    console.log(jsonData)
+    const serverResponse = login(jsonData)
+
 
     if (serverResponse.valid === true ){
         console.log(serverResponse)

@@ -7,8 +7,11 @@ export const login = async(userData)=>{
 
     let user = ref([]);
     try{
-       let response = await axios.get('api/login',userData);
-       user.value = response.data
+       await axios.post('api/login',userData)
+       .then(response => {
+        console.loggg(response)
+        //user.value = response.data
+       })
        return user.value
     } catch(err){
       throw err
