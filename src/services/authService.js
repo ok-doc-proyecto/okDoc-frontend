@@ -1,14 +1,17 @@
 import axios from 'axios' 
+import {ref} from 'vue'
 
-
-export const login = async(userData)=>{
+ const login = async(userData)=>{
     
-    let user = ref([]);
+    let userDataResponse;
         try{
-            let response = await axios.get('api/login',userData);
-            user.value = response.data
-            return user.value
+            let response = await axios.post('api/login',userData);
+            userDataResponse = response.data
+            return userDataResponse
+            
         }catch(err){
             throw err
         }
     }
+
+export default login

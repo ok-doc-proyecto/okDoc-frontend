@@ -31,17 +31,15 @@ const formData = {
     password: ref(''),
     passwordVisibility: ref(false),
 }
-const handleLoginSubmit = (e) => {
+const handleLoginSubmit = async (e) => {
     e.preventDefault();
     let dataObject = {
-        name: 'Gonzalo',
-        user: formData.user.value,
+        email: formData.user.value,
         password: formData.password.value
     }
-    const jsonData = JSON.stringify(dataObject);
+    let serverResponse = await login(dataObject)
 
-    const serverResponse = login(jsonData)
-
+    console.log(serverResponse)
 
 
     approveLogin(serverResponse)
@@ -53,8 +51,7 @@ const handleLoginSubmit = (e) => {
 const approveLogin = (e) => {
     store.commit('logIn', e)
     emit('closeLogin')
-    console.log(store.state.loggedIn)
-    console.log(store.state.userInfo)
+    console.log(store)
 
 }
 

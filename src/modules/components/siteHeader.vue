@@ -49,7 +49,7 @@
             <button
                 class="h-3/5 w-[70px] bg-great-blue-200 hover:bg-great-blue-300 font-Roboto font rounded-lg shadow-md text-center align-middle sm:hidden"
                 v-else>
-                {{ storeVariables.loggedIn ? storeVariables.userInfo.value.name : ''}}
+                {{ storeVariables.loggedIn ? storeVariables.userInfo : ''}}
             </button>
         </div> 
     </header>
