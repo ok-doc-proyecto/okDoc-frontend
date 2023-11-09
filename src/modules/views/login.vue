@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import baseInput from '../elements/baseInput.vue'
 import login from '../../services/authService'
 import { ref, onMounted, reactive, inject } from 'vue';
@@ -45,14 +45,12 @@ const handleLoginSubmit = async (e) => {
     approveLogin(serverResponse)
     formData.user.value = '';
     formData.password.value = '';
-}
+} -->
 
 
 const approveLogin = (e) => {
     store.commit('logIn', e)
     emit('closeLogin')
-    console.log(store)
-
 }
 
 </script>
